@@ -8,6 +8,8 @@ public class Constantes2 {
 	
 	public static final int VELOCIDAD = 0;
 	
+	public static final int LEFT = 1;
+	
 	public static final String RIGHT = "right";
 	
 }
