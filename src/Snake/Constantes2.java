@@ -13,6 +13,8 @@ public class Constantes2 {
 	public static final int UP = 3;
 	
 	public static final int MiDOWN = 4;
+
+	public static final int DOWN = 4;
 	
 	public static final String RIGHT = "right";
 	
