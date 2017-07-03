@@ -114,19 +114,19 @@ public class Cuadradito extends JButton implements ActionListener{
 	public int getVecino(int vecino){
 		int sale = 0;
 		switch(vecino){
-		case Const.RIGHT:  
-			sale = this.vecinoDerecha;
+			case Const.RIGHT:  
+				sale = this.vecinoDerecha;
+				break;
+			case Const.LEFT:  
+				sale = this.vecinoIzquierda;
+				break;
+			case Const.UP:  
+			sale = this.vecinoArriba;
 			break;
-		case Const.LEFT:  
-			sale = this.vecinoIzquierda;
-			break;
-		case Const.UP:  
-		sale = this.vecinoArriba;
-		break;
-		case Const.DOWN:  
-			sale = this.vecinoAbajo;
-			break;
-	}
+			case Const.DOWN:  
+				sale = this.vecinoAbajo;
+				break;
+		}
 		return sale;
 	}
 
@@ -136,20 +136,49 @@ public class Cuadradito extends JButton implements ActionListener{
 	}
 
 	public static void movimiento(int vecino){
-		if(LayerPrincipal.cuadrados[posicion].getVecino(vecino) != -1){
+		if (formaParte(LayerPrincipal.cuadrados[posicion].getVecino(vecino))){
+			
+			if(!Main.perdio){
+				System.out.println("GAME OVER");
+				System.out.println("Score: " + Main.score);
+				Main.perdio = true;
+				Main.pausa = true;
+			}
+			
+		}else if(LayerPrincipal.cuadrados[posicion].getVecino(vecino) != -1){
+			
 			LayerPrincipal.cuadrados[snake.get(0)].setIcon(negro);
-			snake.remove(0);
+			if (snake.size() > Const.TAMAÑO_INICIAL){
+				snake.remove(0);
+			}
 			snake.add(LayerPrincipal.cuadrados[posicion].getVecino(vecino));
 			colorearSnake();
 			LayerPrincipal.cuadrados[LayerPrincipal.cuadrados[posicion].getVecino(vecino)].setIcon(azul);
-			setPosicion(LayerPrincipal.cuadrados[posicion].getVecino(vecino));			
+			setPosicion(LayerPrincipal.cuadrados[posicion].getVecino(vecino));		
+			
 		}else if (LayerPrincipal.cuadrados[posicion].getVecino(vecino) == -1){
-			System.out.println("PERDISTE!");
+			
+			if(!Main.perdio){
+				System.out.println("GAME OVER");
+				System.out.println("Score: " + Main.score);
+				Main.perdio = true;
+				Main.pausa = true;
+			}
+			
 		}else if (LayerPrincipal.cuadrados[LayerPrincipal.cuadrados[posicion].getVecino(vecino)].isCosito){
 			System.out.println("COSITO!");
 			LayerPrincipal.ponerCosito();
 			//snake.add(0, );
 		}
+	}
+	
+	public static boolean formaParte(int pos){
+		for(int i =0; i<snake.size();i++){
+			if (snake.get(i) == pos){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static void setPosicion(int num){

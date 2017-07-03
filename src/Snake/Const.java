@@ -20,5 +20,6 @@ public class Const {
 
 	public static final String TITULO_VENTANA = "Snake";
 	
+	public static final int TAMAÑO_INICIAL = 4;	
 	
 }

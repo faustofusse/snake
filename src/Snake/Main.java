@@ -3,8 +3,10 @@ package Snake;
 public class Main{
 
 	public static Mover mov;
-	public static boolean pausa = true;
+	public static boolean pausa = false;
 	public static boolean iniciado = false;
+	public static int score = 0;
+	public static boolean perdio = false;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

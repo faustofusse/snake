@@ -15,6 +15,7 @@ public class Ventana extends JFrame {
 	
 	
 	public Ventana(){	
+		
 		setVisible(true);
 		
 		setBounds(400,100,Const.COLUMNAS*20+15,Const.FILAS*20+15);
@@ -24,15 +25,16 @@ public class Ventana extends JFrame {
 		add(new LayerPrincipal());
 		addKeyListener(new AccionesDeTeclas());
 		
-		crearSnake(5);
-
-		Cuadradito.colorearSnake();
+		empezar(5);
 	}
 	
-	private void crearSnake(int tamanio){
-		for(int i = 0; i < tamanio; i++){
-			Cuadradito.snake.add(Cuadradito.posicion+i);	
-		}
+	public static void empezar(int tamanio){
+		
+		Cuadradito.snake.add(Cuadradito.posicion);
+
+		Cuadradito.colorearSnake();
+		
 	}
+	
 
 }

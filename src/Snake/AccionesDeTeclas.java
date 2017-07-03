@@ -37,14 +37,12 @@ public class AccionesDeTeclas implements KeyListener{
 			//P
 			if (Main.pausa){
 				Main.pausa=false;
-				//Main.mov.mover = true;
-				//Main.mov.run();
 			}else{
 				System.out.println("PAUSA");
 				Main.pausa=true;
-				//Main.mov.mover = false;
 			}
 		}else if (e.getKeyCode() == 10){
+			//ENTER
 			if (!Main.iniciado){
 				Main.pausa = false;
 				Main.iniciado = true;

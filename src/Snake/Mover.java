@@ -14,6 +14,7 @@ public class Mover implements Runnable{
 					LayerPrincipal.cuadrados[Cuadradito.posicion].isCosito = false;
 					Cuadradito.snake.add(Cuadradito.posicion);
 					LayerPrincipal.ponerCosito();
+					Main.score++;
 					if(velocidad > 30){
 						velocidad -= 1;
 					}
@@ -24,7 +25,10 @@ public class Mover implements Runnable{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				
 				Cuadradito.movimiento(direccion);
+				
+				
 			}else{
 				try {
 					Thread.sleep(10);
