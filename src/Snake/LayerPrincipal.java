@@ -1,9 +1,9 @@
 package Snake;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.Random;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -15,6 +15,7 @@ public class LayerPrincipal extends JPanel{
 	
 	public LayerPrincipal(){
 		setLayout(new GridLayout(Const.COLUMNAS, Const.FILAS));
+		setBackground(Color.black); 
 		for(int i = 0 ; i< Const.COLUMNAS * Const.FILAS; i++){
 			cuadrados[i] = new Cuadradito();
 			cuadrados[i].setNumero(i);

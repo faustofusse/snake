@@ -44,6 +44,11 @@ public class AccionesDeTeclas implements KeyListener{
 				Main.pausa=true;
 				//Main.mov.mover = false;
 			}
+		}else if (e.getKeyCode() == 10){
+			if (!Main.iniciado){
+				Main.pausa = false;
+				Main.iniciado = true;
+			}
 		}
 	}
 

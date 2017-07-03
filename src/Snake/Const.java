@@ -2,9 +2,9 @@ package Snake;
 
 public class Const {
 	
-	public static final int FILAS = 25;
+	public static final int FILAS = 20;
 	
-	public static final int COLUMNAS = 25;
+	public static final int COLUMNAS = 20;
 	
 	public static final int VELOCIDAD = 0;
 	

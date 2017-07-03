@@ -33,6 +33,7 @@ public class Cuadradito extends JButton implements ActionListener{
 	
 	public Cuadradito(){
 		setIcon(negro);
+		setBorderPainted(false);
 		addActionListener(this);
 	} 
 	
