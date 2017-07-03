@@ -1,11 +1,9 @@
 package Snake;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
 public class Main{
 
 	public static Mover mov;
+	public static boolean pausa = false;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -14,7 +12,7 @@ public class Main{
 		
 		mov = new Mover();
 		mov.mover = true;
-		mov.dir = "right";
+		mov.direccion = Const.RIGHT;
 		mov.run();
 	}
 

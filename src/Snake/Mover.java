@@ -3,29 +3,39 @@ package Snake;
 public class Mover implements Runnable{
 
 	public static boolean mover;
-	public static  String dir;
+	public static  int direccion;
 	public static long velocidad = 100;
 
 	@Override
 	public void run() {
-			while(mover){
-				if(LayerPrincipal.cuadrados[Ventana.fijado].isCosito){
-					LayerPrincipal.cuadrados[Ventana.fijado].isCosito = false;
-					Cuadraditos.snake.add(Ventana.fijado);
+		while(mover){
+			if(!Main.pausa){
+				if(LayerPrincipal.cuadrados[Cuadradito.posicion].isCosito){
+					LayerPrincipal.cuadrados[Cuadradito.posicion].isCosito = false;
+					Cuadradito.snake.add(Cuadradito.posicion);
 					LayerPrincipal.ponerCosito();
 					if(velocidad > 30){
 						velocidad -= 1;
 					}
 				}
-				
+
 				try {
 					Thread.sleep(velocidad);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				Cuadraditos.mover2(dir);
+				Cuadradito.movimiento(direccion);
+			}else{
+				try {
+					Thread.sleep(10);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
-			
 		}
+
+	}
+
+
 
 }
