@@ -10,7 +10,6 @@ import javax.swing.JButton;
 
 public class Cuadradito extends JButton implements ActionListener{
 	
-
 	public static int posicion = Const.COLUMNAS +1;
 	
 	public boolean isCosito = false;
@@ -21,8 +20,6 @@ public class Cuadradito extends JButton implements ActionListener{
 	public int vecinoIzquierda;
 	public int vecinoAbajo;
 	public static String direccion = "derecha";
-	private static Timer timer = new Timer();
-	private static boolean mover = false;
 	
 	public static ArrayList<Integer> snake = new ArrayList<Integer>();
 	
@@ -139,8 +136,8 @@ public class Cuadradito extends JButton implements ActionListener{
 		if (formaParte(LayerPrincipal.cuadrados[posicion].getVecino(vecino))){
 			
 			if(!Main.perdio){
-				System.out.println("GAME OVER");
-				System.out.println("Score: " + Main.score);
+				System.out.println("GAME OVER" + " - " + "Score: " + Main.score);
+				System.out.println("Press enter to restart");
 				Main.perdio = true;
 				Main.pausa = true;
 			}
@@ -159,8 +156,8 @@ public class Cuadradito extends JButton implements ActionListener{
 		}else if (LayerPrincipal.cuadrados[posicion].getVecino(vecino) == -1){
 			
 			if(!Main.perdio){
-				System.out.println("GAME OVER");
-				System.out.println("Score: " + Main.score);
+				System.out.println("GAME OVER" + " - " + "Score: " + Main.score);
+				System.out.println("Press enter to restart");
 				Main.perdio = true;
 				Main.pausa = true;
 			}

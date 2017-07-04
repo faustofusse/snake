@@ -3,7 +3,7 @@ package Snake;
 public class Main{
 
 	public static Mover mov;
-	public static boolean pausa = false;
+	public static boolean pausa = true;
 	public static boolean iniciado = false;
 	public static int score = 0;
 	public static boolean perdio = false;
@@ -12,6 +12,8 @@ public class Main{
 		// TODO Auto-generated method stub
 		Ventana ventana1 = new Ventana();
 		ventana1.setVisible(true);
+		
+		System.out.println("Press enter to start");
 		
 		mov = new Mover();
 		mov.mover = true;

@@ -35,17 +35,19 @@ public class AccionesDeTeclas implements KeyListener{
 			}
 		}else if (e.getKeyCode() == 80){
 			//P
-			if (Main.pausa){
+			if (Main.pausa && !Main.perdio){
 				Main.pausa=false;
-			}else{
+			}else if (!Main.perdio){
 				System.out.println("PAUSA");
 				Main.pausa=true;
 			}
 		}else if (e.getKeyCode() == 10){
 			//ENTER
 			if (!Main.iniciado){
-				Main.pausa = false;
+				Ventana.start();
 				Main.iniciado = true;
+			}else if (Main.perdio){
+				Ventana.restart();
 			}
 		}
 	}

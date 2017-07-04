@@ -9,9 +9,9 @@ import javax.swing.JFrame;
 public class Ventana extends JFrame {
 	public static boolean empezo = false;
 	
-	private ImageIcon negro = new ImageIcon("src/Snake/img/negro.png");
-	private ImageIcon azul = new ImageIcon("src/Snake/img/azul.png");
-	private ImageIcon verde = new ImageIcon("src/Snake/img/verde.png");
+	private static ImageIcon negro = new ImageIcon("src/Snake/img/negro.png");
+	private static ImageIcon azul = new ImageIcon("src/Snake/img/azul.png");
+	private static ImageIcon verde = new ImageIcon("src/Snake/img/verde.png");
 	
 	
 	public Ventana(){	
@@ -25,16 +25,37 @@ public class Ventana extends JFrame {
 		add(new LayerPrincipal());
 		addKeyListener(new AccionesDeTeclas());
 		
-		empezar(5);
 	}
 	
-	public static void empezar(int tamanio){
-		
+	public static void start(){	
 		Cuadradito.snake.add(Cuadradito.posicion);
-
 		Cuadradito.colorearSnake();
-		
+		empezo = true;
+		Main.pausa = false;
+		Mover.direccion = Const.RIGHT;
+		LayerPrincipal.ponerCosito();
 	}
 	
+	public static void restart(){
+		pintarTodos();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Cuadradito.snake.clear();
+		Main.score = 0;
+		Main.perdio = false;
+		Cuadradito.posicion = Const.COLUMNAS +1;
+		start();
+	}
+	
+	private static void pintarTodos(){
+		for (int i =0; i<Const.COLUMNAS*Const.FILAS;i++){
+			LayerPrincipal.cuadrados[i].setIcon(negro);
+			LayerPrincipal.cuadrados[i].isCosito = false;
+		}
+	}
 
 }

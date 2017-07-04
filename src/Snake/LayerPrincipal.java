@@ -26,8 +26,6 @@ public class LayerPrincipal extends JPanel{
 			add(cuadrados[i]);
 		}
 		
-		ponerCosito();
-		
 	}
 	
 	public static void ponerCosito(){
