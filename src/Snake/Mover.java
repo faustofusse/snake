@@ -4,7 +4,7 @@ public class Mover implements Runnable{
 
 	public static boolean mover;
 	public static  int direccion;
-	public static long velocidad = 100;
+	public static long velocidad = Const.VELOCIDAD;
 
 	@Override
 	public void run() {

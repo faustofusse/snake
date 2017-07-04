@@ -49,14 +49,15 @@ public class AccionesDeTeclas implements KeyListener{
 			}else if (Main.perdio){
 				Ventana.restart();
 			}
+		}else if (e.getKeyCode() == 16){
+			//SHIFT
+			Mover.velocidad -= 5;
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
-		
 		
 	}
 

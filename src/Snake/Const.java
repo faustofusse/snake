@@ -6,7 +6,7 @@ public class Const {
 	
 	public static final int COLUMNAS = 20;
 	
-	public static final int VELOCIDAD = 0;
+	public static final int VELOCIDAD = 100;
 	
 	public static final int LEFT = 1;
 	
