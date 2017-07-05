@@ -145,7 +145,7 @@ public class Cuadradito extends JButton implements ActionListener{
 		}else if(LayerPrincipal.cuadrados[posicion].getVecino(vecino) != -1){
 			
 			LayerPrincipal.cuadrados[snake.get(0)].setIcon(negro);
-			if (snake.size() > Const.TAMAÑO_INICIAL){
+			if (snake.size() > Const.TAMANIO_INICIAL){
 				snake.remove(0);
 			}
 			snake.add(LayerPrincipal.cuadrados[posicion].getVecino(vecino));
