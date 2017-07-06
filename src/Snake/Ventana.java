@@ -5,6 +5,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Ventana extends JFrame {
 	public static boolean empezo = false;
@@ -81,6 +82,22 @@ public class Ventana extends JFrame {
 		LayerPrincipal.cuadrados[pos+8].setIcon(t);
 		LayerPrincipal.cuadrados[pos+9].setIcon(e);
 		LayerPrincipal.cuadrados[pos+10].setIcon(r);
+	}
+	
+	public static void mensajePerdio(){
+			    
+	    //JOptionPane.showMessageDialog(frame,"Has perdido...");
+		//JOptionPane.showMessageDialog(null, "Has perdido", "Perdiste!!!", JOptionPane.ERROR_MESSAGE);
+		
+		int resp = JOptionPane.showConfirmDialog(null,"Puntos obtenidos: "+ Main.score + " \n Queres volver a empezar?", "Perdiste!", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+		if(resp == JOptionPane.YES_OPTION){ 
+			//Aca le das para que empiece
+			Ventana.restart();
+		}else{
+			//Aca finaliza el programa
+			System.exit(0);	
+		}
+	    
 	}
 
 }

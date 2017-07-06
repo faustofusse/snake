@@ -7,6 +7,8 @@ import java.util.Timer;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Cuadradito extends JButton implements ActionListener{
 	
@@ -140,6 +142,8 @@ public class Cuadradito extends JButton implements ActionListener{
 				System.out.println("Press enter to restart");
 				Main.perdio = true;
 				Main.pausa = true;
+				//Agrego mensaje de perdio
+				Ventana.mensajePerdio();
 			}
 			
 		}else if(LayerPrincipal.cuadrados[posicion].getVecino(vecino) != -1){
@@ -160,6 +164,8 @@ public class Cuadradito extends JButton implements ActionListener{
 				System.out.println("Press enter to restart");
 				Main.perdio = true;
 				Main.pausa = true;
+				//Agrego mensaje de perdio
+				Ventana.mensajePerdio();
 			}
 			
 		}else if (LayerPrincipal.cuadrados[LayerPrincipal.cuadrados[posicion].getVecino(vecino)].isCosito){
