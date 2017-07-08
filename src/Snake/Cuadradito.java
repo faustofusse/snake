@@ -38,7 +38,7 @@ public class Cuadradito extends JButton implements ActionListener{
 			new ImageIcon("src/Snake/img/e#.png"),
 			new ImageIcon("src/Snake/img/r#.png")};	
 	
-	private static ImageIcon[] imgScore = {new ImageIcon("src/Snake/img/s.png"),
+	private static ImageIcon[] imgScore = {new ImageIcon("src/Snake/img/s2.png"),
 			new ImageIcon("src/Snake/img/c.png"),
 			new ImageIcon("src/Snake/img/o.png"),
 			new ImageIcon("src/Snake/img/r.png"),
@@ -216,29 +216,27 @@ public class Cuadradito extends JButton implements ActionListener{
 			e.printStackTrace();
 		}
 		
-		
-		pos =7*Const.FILAS+4;
-		
-		b=0;
-		for (int i =0; i<9;i++){
-			LayerPrincipal.cuadrados[pos+b].setIcon(imgGameover[b]);
-			if (b == 3){b++;}
-			b++;
+		//GAME OVER
+		pos =7*Const.FILAS+4;		
+		for(int i = 0; i<4; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgGameover[i]);
+			pos++;
+		}
+		pos++;
+		for(int i = 4; i<8; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgGameover[i]);
+			pos++;
 		}
 		
+		//SCORE: 
 		pos =9*Const.FILAS+4;
-		
-		for (int i =0; i<6;i++){
-			LayerPrincipal.cuadrados[pos+i].setIcon(imgScore[i]);
+		for(int i = 0; i<6; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgScore[i]);
+			pos++;
 		}
 		
-		pos =11*Const.FILAS+4;
 		
-		for (int i =0; i<10;i++){
-			LayerPrincipal.cuadrados[pos+i].setIcon(imgEnter[i]);
-			if (i == 4){i++;}
-		}
-		
+		//PRESS ENTER
 	}
 	
 	public static boolean formaParte(int pos){
