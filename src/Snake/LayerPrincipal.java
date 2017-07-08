@@ -18,14 +18,18 @@ public class LayerPrincipal extends JPanel{
 		setBackground(Color.black); 
 		for(int i = 0 ; i< Const.COLUMNAS * Const.FILAS; i++){
 			cuadrados[i] = new Cuadradito();
-			cuadrados[i].setNumero(i);
-			cuadrados[i].setArriba(Cuadradito.obtenerVecinos(i)[1]);
-			cuadrados[i].setAbajo(Cuadradito.obtenerVecinos(i)[6]);
-			cuadrados[i].setDerecha(Cuadradito.obtenerVecinos(i)[4]);
-			cuadrados[i].setIzquierda(Cuadradito.obtenerVecinos(i)[3]);
+			asignarValores(i);
 			add(cuadrados[i]);
 		}
 		
+	}
+	
+	public static void asignarValores(int i){
+		cuadrados[i].setNumero(i);
+		cuadrados[i].setArriba(Cuadradito.obtenerVecinos(i)[1]);
+		cuadrados[i].setAbajo(Cuadradito.obtenerVecinos(i)[6]);
+		cuadrados[i].setDerecha(Cuadradito.obtenerVecinos(i)[4]);
+		cuadrados[i].setIzquierda(Cuadradito.obtenerVecinos(i)[3]);
 	}
 	
 	public static void ponerCosito(){

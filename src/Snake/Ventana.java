@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class Ventana extends JFrame {
 	public static boolean empezo = false;
@@ -61,7 +62,7 @@ public class Ventana extends JFrame {
 		start();
 	}
 	
-	private static void pintarTodos(){
+	public static void pintarTodos(){
 		for (int i =0; i<Const.COLUMNAS*Const.FILAS;i++){
 			LayerPrincipal.cuadrados[i].setIcon(negro);
 			LayerPrincipal.cuadrados[i].isCosito = false;

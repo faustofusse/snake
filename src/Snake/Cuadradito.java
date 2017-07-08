@@ -27,8 +27,34 @@ public class Cuadradito extends JButton implements ActionListener{
 	
 	private static ImageIcon negro = new ImageIcon("src/Snake/img/negro.png");
 	private static ImageIcon azul = new ImageIcon("src/Snake/img/azul.png");
-	private ImageIcon verde = new ImageIcon("src/Snake/img/verde.png");
+	private static ImageIcon verde = new ImageIcon("src/Snake/img/verde.png");
 
+	private static ImageIcon[] imgGameover = {new ImageIcon("src/Snake/img/g#.png"),
+			new ImageIcon("src/Snake/img/a#.png"),
+			new ImageIcon("src/Snake/img/m#.png"),
+			new ImageIcon("src/Snake/img/e#.png"),
+			new ImageIcon("src/Snake/img/o#.png"),
+			new ImageIcon("src/Snake/img/v#.png"),
+			new ImageIcon("src/Snake/img/e#.png"),
+			new ImageIcon("src/Snake/img/r#.png")};	
+	
+	private static ImageIcon[] imgScore = {new ImageIcon("src/Snake/img/s.png"),
+			new ImageIcon("src/Snake/img/c.png"),
+			new ImageIcon("src/Snake/img/o.png"),
+			new ImageIcon("src/Snake/img/r.png"),
+			new ImageIcon("src/Snake/img/e.png"),
+			new ImageIcon("src/Snake/img/dosp.png")};
+	
+	private static ImageIcon[] imgEnter = {new ImageIcon("src/Snake/img/p.png"),
+			new ImageIcon("src/Snake/img/r.png"),
+			new ImageIcon("src/Snake/img/e.png"),
+			new ImageIcon("src/Snake/img/s.png"),
+			new ImageIcon("src/Snake/img/s.png"),
+			new ImageIcon("src/Snake/img/e.png"),
+			new ImageIcon("src/Snake/img/n.png"),
+			new ImageIcon("src/Snake/img/t.png"),
+			new ImageIcon("src/Snake/img/e.png"),
+			new ImageIcon("src/Snake/img/r.png")};
 	
 	public Cuadradito(){
 		setIcon(negro);
@@ -138,12 +164,7 @@ public class Cuadradito extends JButton implements ActionListener{
 		if (formaParte(LayerPrincipal.cuadrados[posicion].getVecino(vecino))){
 			
 			if(!Main.perdio){
-				System.out.println("GAME OVER" + " - " + "Score: " + Main.score);
-				System.out.println("Press enter to restart");
-				Main.perdio = true;
-				Main.pausa = true;
-				//Agrego mensaje de perdio
-				Ventana.mensajePerdio();
+				gameover();
 			}
 			
 		}else if(LayerPrincipal.cuadrados[posicion].getVecino(vecino) != -1){
@@ -160,12 +181,7 @@ public class Cuadradito extends JButton implements ActionListener{
 		}else if (LayerPrincipal.cuadrados[posicion].getVecino(vecino) == -1){
 			
 			if(!Main.perdio){
-				System.out.println("GAME OVER" + " - " + "Score: " + Main.score);
-				System.out.println("Press enter to restart");
-				Main.perdio = true;
-				Main.pausa = true;
-				//Agrego mensaje de perdio
-				Ventana.mensajePerdio();
+				gameover(); 
 			}
 			
 		}else if (LayerPrincipal.cuadrados[LayerPrincipal.cuadrados[posicion].getVecino(vecino)].isCosito){
@@ -173,6 +189,56 @@ public class Cuadradito extends JButton implements ActionListener{
 			LayerPrincipal.ponerCosito();
 			//snake.add(0, );
 		}
+	}
+	
+	public static void gameover(){
+		
+		System.out.println("GAME OVER" + " - " + "Score: " + Main.score);
+		System.out.println("Press enter to restart");
+		Main.perdio = true;
+		Main.pausa = true;
+		//Agrego mensaje de perdio
+		//Ventana.mensajePerdio();	
+		paintGameover();
+		
+	}
+	
+	public static void paintGameover(){
+		
+		int pos;
+		int b;
+		Ventana.pintarTodos();
+		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		pos =7*Const.FILAS+4;
+		
+		b=0;
+		for (int i =0; i<9;i++){
+			LayerPrincipal.cuadrados[pos+b].setIcon(imgGameover[b]);
+			if (b == 3){b++;}
+			b++;
+		}
+		
+		pos =9*Const.FILAS+4;
+		
+		for (int i =0; i<6;i++){
+			LayerPrincipal.cuadrados[pos+i].setIcon(imgScore[i]);
+		}
+		
+		pos =11*Const.FILAS+4;
+		
+		for (int i =0; i<10;i++){
+			LayerPrincipal.cuadrados[pos+i].setIcon(imgEnter[i]);
+			if (i == 4){i++;}
+		}
+		
 	}
 	
 	public static boolean formaParte(int pos){
