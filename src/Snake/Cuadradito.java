@@ -215,13 +215,12 @@ public class Cuadradito extends JButton{
 	public static void paintGameover(){
 		
 		int pos;
-		int b;
 		Ventana.pintarTodos();
 		snake.add(Cuadradito.posicion);
 		Mover.direccion = Const.RIGHT;
 		
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(700);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -253,7 +252,7 @@ public class Cuadradito extends JButton{
 		}
 		
 		//PRESS ENTER
-		pos =11*Const.FILAS+4;
+		/*pos =11*Const.FILAS+4;
 		for(int i = 0; i<5; i++){
 			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
 			pos++;
@@ -262,7 +261,7 @@ public class Cuadradito extends JButton{
 		for(int i = 5; i<10; i++){
 			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
 			pos++;
-		}
+		}*/
 		
 		
 	}
