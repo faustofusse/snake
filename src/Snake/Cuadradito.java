@@ -252,7 +252,7 @@ public class Cuadradito extends JButton{
 		}
 		
 		//PRESS ENTER
-		/*pos =11*Const.FILAS+4;
+		pos =12*Const.FILAS+4;
 		for(int i = 0; i<5; i++){
 			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
 			pos++;
@@ -261,7 +261,7 @@ public class Cuadradito extends JButton{
 		for(int i = 5; i<10; i++){
 			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
 			pos++;
-		}*/
+		}
 		
 		
 	}
