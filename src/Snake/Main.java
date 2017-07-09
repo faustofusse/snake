@@ -7,7 +7,6 @@ public class Main{
 	public static boolean iniciado = false;
 	public static int score = 0;
 	public static boolean perdio = false;
-	public static VentanaPerdiste ventana2 = new VentanaPerdiste();
 	
 	
 	public static void main(String[] args) {
@@ -15,7 +14,6 @@ public class Main{
 		Ventana ventana1 = new Ventana();
 		ventana1.setVisible(true);
 		
-		ventana2.setVisible(false);
 		
 		System.out.println("Press enter to start");
 		

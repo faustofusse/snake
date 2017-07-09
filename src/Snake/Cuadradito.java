@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Cuadradito extends JButton implements ActionListener{
+public class Cuadradito extends JButton{
 	
 	public static int posicion = Const.COLUMNAS +1;
 	
@@ -22,6 +22,7 @@ public class Cuadradito extends JButton implements ActionListener{
 	public int vecinoIzquierda;
 	public int vecinoAbajo;
 	public static String direccion = "derecha";
+	private static String score2; 
 	
 	public static ArrayList<Integer> snake = new ArrayList<Integer>();
 	
@@ -56,10 +57,22 @@ public class Cuadradito extends JButton implements ActionListener{
 			new ImageIcon("src/Snake/img/e.png"),
 			new ImageIcon("src/Snake/img/r.png")};
 	
+	private static ImageIcon[] imgNumeros = {
+			new ImageIcon("src/Snake/img/0.png"),
+			new ImageIcon("src/Snake/img/1.png"),
+			new ImageIcon("src/Snake/img/2.png"),
+			new ImageIcon("src/Snake/img/3.png"),
+			new ImageIcon("src/Snake/img/4.png"),
+			new ImageIcon("src/Snake/img/5.png"),
+			new ImageIcon("src/Snake/img/6.png"),
+			new ImageIcon("src/Snake/img/7.png"),
+			new ImageIcon("src/Snake/img/8.png"),
+			new ImageIcon("src/Snake/img/9.png")
+	};
+	
 	public Cuadradito(){
 		setIcon(negro);
 		setBorderPainted(false);
-		addActionListener(this);
 	} 
 	
 		
@@ -155,10 +168,6 @@ public class Cuadradito extends JButton implements ActionListener{
 		return sale;
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub	
-	}
 
 	public static void movimiento(int vecino){
 		if (formaParte(LayerPrincipal.cuadrados[posicion].getVecino(vecino))){
@@ -234,7 +243,12 @@ public class Cuadradito extends JButton implements ActionListener{
 			LayerPrincipal.cuadrados[pos].setIcon(imgScore[i]);
 			pos++;
 		}
-		
+		score2 = String.valueOf(Main.score); 
+		String[] score3 = score2.split("");
+		for(int i = 0; i<score2.length(); i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgNumeros[Integer.parseInt(score3[i])]);
+			pos++;
+		}
 		
 		//PRESS ENTER
 	}
