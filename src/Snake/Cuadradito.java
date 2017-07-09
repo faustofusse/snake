@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Cuadradito extends JButton implements ActionListener{
+public class Cuadradito extends JButton{
 	
 	public static int posicion = Const.COLUMNAS +1;
 	
@@ -59,7 +59,6 @@ public class Cuadradito extends JButton implements ActionListener{
 	public Cuadradito(){
 		setIcon(negro);
 		setBorderPainted(false);
-		addActionListener(this);
 	} 
 	
 		
@@ -155,10 +154,6 @@ public class Cuadradito extends JButton implements ActionListener{
 		return sale;
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub	
-	}
 
 	public static void movimiento(int vecino){
 		if (formaParte(LayerPrincipal.cuadrados[posicion].getVecino(vecino))){
@@ -208,9 +203,11 @@ public class Cuadradito extends JButton implements ActionListener{
 		int pos;
 		int b;
 		Ventana.pintarTodos();
+		snake.add(Cuadradito.posicion);
+		Mover.direccion = Const.RIGHT;
 		
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -237,6 +234,18 @@ public class Cuadradito extends JButton implements ActionListener{
 		
 		
 		//PRESS ENTER
+		pos =11*Const.FILAS+4;
+		for(int i = 0; i<5; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
+			pos++;
+		}
+		pos++;
+		for(int i = 5; i<10; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
+			pos++;
+		}
+		
+		
 	}
 	
 	public static boolean formaParte(int pos){
