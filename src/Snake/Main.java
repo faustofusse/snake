@@ -13,8 +13,7 @@ public class Main{
 		// TODO Auto-generated method stub
 		Ventana ventana1 = new Ventana();
 		ventana1.setVisible(true);
-		
-		
+
 		System.out.println("Press enter to start");
 		
 		mov = new Mover();

@@ -217,9 +217,11 @@ public class Cuadradito extends JButton{
 		int pos;
 		int b;
 		Ventana.pintarTodos();
+		snake.add(Cuadradito.posicion);
+		Mover.direccion = Const.RIGHT;
 		
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -251,6 +253,18 @@ public class Cuadradito extends JButton{
 		}
 		
 		//PRESS ENTER
+		pos =11*Const.FILAS+4;
+		for(int i = 0; i<5; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
+			pos++;
+		}
+		pos++;
+		for(int i = 5; i<10; i++){
+			LayerPrincipal.cuadrados[pos].setIcon(imgEnter[i]);
+			pos++;
+		}
+		
+		
 	}
 	
 	public static boolean formaParte(int pos){
