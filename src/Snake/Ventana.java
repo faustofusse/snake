@@ -1,5 +1,6 @@
 package Snake;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -25,7 +26,7 @@ public class Ventana extends JFrame {
 	public Ventana(){	
 		
 		setVisible(true);
-		
+		setBackground(Color.black);
 		setBounds(400,100,Const.COLUMNAS*20+15,Const.FILAS*20+15);
 		setResizable(false);
 		setTitle(Const.TITULO_VENTANA);

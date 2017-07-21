@@ -1,5 +1,7 @@
 package Snake;
 
+import java.awt.Color;
+
 public class Const {
 	
 	public static final int FILAS = 20;
@@ -22,4 +24,9 @@ public class Const {
 	
 	public static final int TAMANIO_INICIAL = 4;	
 	
+	public static final Color FONDO_CUADRADITOS = new Color(48,48,48);
+	
+	public static final Color FONDO_SNAKE = new Color(39,164,242);
+	
+	public static final Color FONDO_COSITO = new Color(54,199,73);
 }
